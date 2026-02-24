@@ -9,34 +9,40 @@
 </head>
 
 <body>
-    <!-- <div class="background"> <img src="Barangay-Kauswagan-BG.jpg" alt="Barangay Kauswagan Background"></div> -->
+    <div class="background"> <img
+            src="https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/481168265_956974639944830_8860608527254234247_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeFjboNANnz2p35WoRZReufghjCZ3N40DTKGMJnc3jQNMk_XLW0DBqfvA9qt-SelAgXAVYEeTQGjreiVZxHhO4Gw&_nc_ohc=FZtB9TnQ19cQ7kNvwFsQJiT&_nc_oc=AdmhIHyF_hmhmBqfE-2Dyh5BocosEbtQczVWRfMNcOHFa3nnZtU54S3jTSVIdVC0i9w&_nc_zt=23&_nc_ht=scontent.fcgm1-1.fna&_nc_gid=XoHfnTMvtLFbCsxdDF-vow&oh=00_AfuVzawd9K1bZBI-Yt5TAr7lDiSIaQM1xLM-CKFofVvfuQ&oe=6984BBBB"
+            alt="Barangay Kauswagan Background"></div>
     <div class="container">
         <!--LOGIN-->
-        <div class="form-box login" id="loginBox">
-            <form action="#">
-                <h1>Login</h1>
-                <div class="input-box">
-                    <input type="text" id="usernameInput" placeholder="Username" required>
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="text" id="passwordInput" placeholder="Password" required>
-                    <i class="fa-solid fa-lock"></i>
-                </div>
-                <div class="select-role">
-                    <select id="role" required>
-                        <option value="">Select Role</option>
-                        <option value="admin">Patient</option>
-                        <option value="teacher">Staff</option>
-                        <option value="student">Doctor</option>
-                    </select>
-                </div>
-                <div class="forgot-link">
-                    <a href="#">Forgot Password?</a>
-                </div>
-                <button type="submit" class="btn">Login</button>
+      <div class="form-box login" id="loginBox">
+    <form action="#">
+        <h1>Login</h1>
+        <div class="input-box">
+            <input type="text" id="usernameInput" placeholder="Username" required>
+            <i class="fa-solid fa-user"></i>
         </div>
-        </form>
+        <div class="input-box">
+            <input type="password" id="passwordInput" placeholder="Password" required>
+            <i class="fa-solid fa-lock"></i>
+        </div>
+        <div class="select-role">
+            <select class="select-role" id="role" required>
+                <option value="">Select Role</option>
+                <option value="patient">Patient</option>
+                <option value="staff">Staff</option>
+                <option value="doctor">Doctor</option>
+            </select>
+        </div>
+        
+        <div class="captcha-container" style="margin: 15px 0; text-align: left; font-size: 14px;">
+            <label id="captcha-label" style="display: block; margin-bottom: 5px; color: #333; font-weight: 600;">What is X + Y?</label>
+            <input type="number" id="captchaInput" placeholder="Enter answer" required 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+    </form>
+</div>
 
         <!--REGISTER-->
         <div class="form-box register" id="registerBox">
@@ -61,18 +67,17 @@
                     </div>
 
                     <div class="select-role1">
-                        <select class="select-role" id="role" required>
+                        <select class="select-role1" id="role" required>
                             <option value="">Select Role</option>
                             <option value="admin">Patient</option>
                             <option value="teacher">Staff</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn">Register</button>
+                    <button type="submit" class="btn" id="registerBtn">Register</button>
                 </div>
             </form>
         </div>
-
-
+ 
         <!--TOGGLE BOX-->
         <div class="toggle-box" id="toggle-box">
 
@@ -90,71 +95,223 @@
                 <button type="button" class="btn" id="login-btn">Login</button>
             </div>
         </div>
-
     </div>
-     <!--homepage-->
+
+
+    <!--HOMEPAGE-->
     <div class="home-page" id="homePage" style="display: none;">
+        <aside class="home-sidebar">
+            <div class="home-logo-circle">LOGO</div>
+            <nav>
+                <div class="home-nav-item active"><i class="fa-solid fa-house"></i> Home</div>
+                <div class="home-nav-item"><i class="fa-solid fa-chart-line"></i> Dashboard</div>
+                <div class="home-nav-item"><i class="fa-solid fa-calendar-days"></i> Appointment</div>
+                <div class="home-nav-item"><i class="fa-solid fa-gear"></i> Settings</div>
+            </nav>
+        </aside>
+
+        <main class="home-main">
+            <header class="home-top-bar">
+                <h1>Welcome Back!</h1>
+            </header>
+            <section class="home-content-row">
+                <div class="home-card">
+                    <h2>About Us</h2>
+                    <div class="home-img-placeholder"></div>
+                </div>
+                <div class="home-card">
+                    <h2>About Us</h2>
+                    <div class="home-img-placeholder"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+ <!--DASHBOARD-->
+    <div class="dashboard-page" id="dashboardPage" style="display: none;">
+        <aside class="home-sidebar">
+            <div class="home-logo-circle"><img src="https://i.ibb.co/vxLybbws/Health-Management-System-LOGO.png"
+                    alt="Health Management System Logo"></div>
+            <nav>
+                <div class="home-nav-item" id="homeBtnDash"><i class="fa-solid fa-house"></i> Home</div>
+                <div class="home-nav-item active"><i class="fa-solid fa-chart-line"></i> Dashboard</div>
+                <div class="home-nav-dashboard-holder_1">
+                    <span id="patient-dashboard"><i class="fa-solid fa-bed"></i></i>Patient Dashboard</span>
+                </div>
+                <div class="home-nav-dashboard-holder_2">
+                    <span id="doctor-dashboard"><i class="fa-solid fa-user-doctor"></i>Doctor Dashboard</span>
+                </div>
+                <div class="home-nav-item" id="appointmentBtnDash"><i class="fa-solid fa-calendar-days"></i>Appointment
+                </div>
+                <div class="home-nav-item" id="settingsBtnDash"><i class="fa-solid fa-gear"></i> Settings</div>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-top-bar">
+                <h1>Dashboard</h1>
+            </header>
+
+            <section class="dashboard-stats-row">
+                <div class="dashboard-card-placeholder">
+                    <h3>Total Appointments</h3>
+                    <span id="main-total-appointments">0</span>
+                </div>
+
+                <div class="dashboard-card-placeholder">
+                    <h3>Total Patients</h3>
+                    <span id="main-total-patients">0</span>
+                </div>
+
+                <div class="dashboard-card-placeholder">
+                    <h3>Total Doctors</h3>
+                    <span id="main-total-doctors">0</span>
+                </div>
+
+            </section>
+
+            <section class="dashboard-progress">
+                <h3>Total Progress</h3>
+                <div class="dashboard-progress-placeholder"></div>
+            </section>
+        </main>
+        <!--patient-->
+        <section class="patient-dashboard-page" id="patientdashboardPage" style="display: none;">
+    <main class="patient-dashboard-main">
+        <header class="patient-dashboard-top-bar">
+            <h1>Patient Management</h1>
+        </header>
+
+        <div class="patient-dashboard-form-container">
+            <form id="add-patient-form">
+                <h3><i class="fa-solid fa-user-plus"></i> New Registration</h3>
+                <div class="form-inputs">
+                    <input type="text" id="patient-firstname" placeholder="First Name" required>
+                    <input type="text" id="patient-lastname" placeholder="Last Name" required>
+                    <input type="email" id="patient-email" placeholder="Email Address" required>
+                    <button type="submit" class="btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="patient-dashboard-progress-placeholder">
+            <div class="table-header-tools">
+                <div class="search-group">
+                    <input type="text" id="search-input" placeholder="Search Master List...">
+                    <button id="search-btn" class="btn-primary">Search</button>
+                    <button id="reset-btn" class="btn-secondary">Reset</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Recorded</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patients-list">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</section>
+<!--doctor-->
+   <section class="doctor-dashboard-page" id="doctordashboardPage" style="display: none;">
+    <main class="doctor-dashboard-main">
+        <header class="dashboard-top-bar">
+            <h1>Doctor Overview</h1>
+        </header>
+
+        <div class="doctor-stats-grid">
+            <div class="stat-card">
+                <i class="fa-solid fa-hospital-user"></i>
+                <div class="stat-info">
+                    <h3>My Patients</h3>
+                    <span id="doctor-total-patients">24</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-clock"></i>
+                <div class="stat-info">
+                    <h3>Today's Visits</h3>
+                    <span id="doctor-today-appointments">8</span>
+                </div>
+            </div>
+            <div class="stat-card urgent">
+                <i class="fa-solid fa- bell-concierge"></i>
+                <div class="stat-info">
+                    <h3>Pending</h3>
+                    <span id="doctor-pending-requests">3</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="doctor-dashboard-box">
+            <div class="table-header-tools">
+                <h2>Assigned Patients</h2>
+                <div class="search-group">
+                    <input type="text" id="doctor-search" placeholder="Search patient...">
+                    <button class="btn-primary-search">Find</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="doctor-dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Last Visit</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="doctor-patient-list">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</section>
+
+    <!--appointment-->
+<div class="appointment-page" id="appointmentPage" style="display: none;">
     <aside class="home-sidebar">
         <div class="home-logo-circle">LOGO</div>
         <nav>
-            <div class="home-nav-item active"><i class="fa-solid fa-house"></i> Home</div>
-            <div class="home-nav-item"><i class="fa-solid fa-chart-line"></i> Dashboard</div>
-            <div class="home-nav-item"><i class="fa-solid fa-calendar-days"></i> Appointment</div>
+            <div class="home-nav-item" id="homeBtnApp"><i class="fa-solid fa-house"></i> Home</div>
+            <div class="home-nav-item" id="dashBtnApp"><i class="fa-solid fa-chart-line"></i> Dashboard</div>
+            <div class="home-nav-item active"><i class="fa-solid fa-calendar-days"></i> Appointment</div>
             <div class="home-nav-item"><i class="fa-solid fa-gear"></i> Settings</div>
         </nav>
     </aside>
 
-    <main class="home-main">
-        <header class="home-top-bar">
-         <h1 style="font-size: 24px; color: #333; margin: 0 auto;">Welcome Back!</h1>
-        </header>
-        <section class="home-content-row">
-            <div class="home-card">
-                <h2>About Us</h2>
-                <div class="home-img-placeholder"></div>
-            </div>
-            <div class="home-card">
-                <h2>About Us</h2>
-                <div class="home-img-placeholder"></div>
-            </div>
-        </section>
-    </main>
-</div>
-<!--Dashboard-->
-<div class="dashboard-page" id="dashboardPage" style="display: none;">
-    <aside class="home-sidebar">
-        <div class="home-logo-circle">LOGO</div>
-        <nav>
-            <div class="home-nav-item" id="homeBtnDash"><i class="fa-solid fa-house"></i> Home</div>
-            <div class="home-nav-item active"><i class="fa-solid fa-chart-line"></i> Dashboard</div>
-            <div class="home-nav-item" id="appointmentBtnDash"><i class="fa-solid fa-calendar-days"></i> Appointment</div>
-            <div class="home-nav-item" id="settingsBtnDash"><i class="fa-solid fa-gear"></i> Settings</div>
-        </nav>
-    </aside>
-
-    <main class="dashboard-main">
-        <header class="dashboard-top-bar">
-            <h1>Dashboard</h1>
+    <main class="appointment-main">
+        <header class="appointment-top-bar">
+            <h3>Appointments</h3>
         </header>
 
-        <section class="dashboard-stats-row">
-            <div class="dashboard-card">
-                <h3>Total Appointment</h3>
-                <div class="dashboard-card-placeholder"></div>
-            </div>
-            <div class="dashboard-card">
-                <h3>Total Patient</h3>
-                <div class="dashboard-card-placeholder"></div>
-            </div>
-            <div class="dashboard-card">
-                <h3>Total Doctor</h3>
-                <div class="dashboard-card-placeholder"></div>
-            </div>
+        <section class="appointment-action-row">
+            <button class="add-appointment-btn">+ Add Appointment</button>
         </section>
 
-        <section class="dashboard-progress">
-            <h3>Total Progress</h3>
-            <div class="dashboard-progress-placeholder"></div>
+        <section class="appointment-content-row">
+            <div class="appointment-card">
+                <h3>About Us</h3>
+                <div class="appointment-card-placeholder">
+                     <div class="wireframe-x"></div>
+                </div>
+            </div>
+            <div class="appointment-card">
+                <h3>About Us</h3>
+                <div class="appointment-card-placeholder">
+                     <div class="wireframe-x"></div>
+                </div>
+            </div>
         </section>
     </main>
 </div>
@@ -163,3 +320,48 @@
 </body>
 
 </html>
+<!--Setting-->
+<div class="settings-page" id="settingsPage" style="display: none;">
+    <aside class="home-sidebar">
+        <div class="home-logo-circle">LOGO</div>
+        <nav>
+            <div class="home-nav-item" id="homeBtnSett"><i class="fa-solid fa-house"></i> Home</div>
+            <div class="home-nav-item" id="dashBtnSett"><i class="fa-solid fa-chart-line"></i> Dashboard</div>
+            <div class="home-nav-item" id="appBtnSett"><i class="fa-solid fa-calendar-days"></i> Appointment</div>
+            <div class="home-nav-item active"><i class="fa-solid fa-gear"></i> Settings</div>
+        </nav>
+    </aside>
+
+    <main class="settings-main">
+        <div class="settings-container">
+            <div class="profile-card">
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+                <div class="input-group">
+                    <label>Birthdate</label>
+                    <input type="date">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="email@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Patient ID</label>
+                    <input type="text" placeholder="P-000000" readonly>
+                </div>
+                <div class="input-group">
+                    <label>Contact #</label>
+                    <input type="tel" placeholder="0912 345 6789">
+                </div>
+
+                <div class="settings-actions">
+                    <button class="btn-secondary">Edit Profile</button>
+                    <button class="btn-primary">Apply Changes</button>
+                    <button class="btn-outline">Logout</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
